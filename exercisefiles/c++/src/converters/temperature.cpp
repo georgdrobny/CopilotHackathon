@@ -1,5 +1,5 @@
 #include "temperature.h"
-#include <cstdio>
+#include <iostream>
 #include <unordered_map>
 namespace /* private */
 {
@@ -7,8 +7,8 @@ namespace /* private */
   std::string getTemperatureUnitSign(TemperatureUnit unit)
   {
     std::unordered_map<TemperatureUnit, std::string> unitSigns = {
-      {TemperatureUnit::Celsius, "°C"},
-      {TemperatureUnit::Fahrenheit, "°F"},
+      {TemperatureUnit::Celsius, "\u00b0C"},
+      {TemperatureUnit::Fahrenheit, "\u00b0F"},
       {TemperatureUnit::Kelvin, "K"}
     };
 
@@ -26,26 +26,26 @@ namespace TemperatureConversion
 
     double targetValue = convertTemperature(sourceValue, from, to);
 
-    printf("%.2f%s is %.2f%s\n", sourceValue, getTemperatureUnitSign(from).c_str(), targetValue, getTemperatureUnitSign(to).c_str());
+    std::cout << sourceValue << getTemperatureUnitSign(from) << " is " << targetValue << getTemperatureUnitSign(to) << std::endl;
   }
 
   double getSourceValue()
   {
     double value;
-    printf("Enter the value to be converted: ");
-    scanf("%lf", &value);
+    std::cout << "Enter the value to be converted: ";
+    std::cin >> value;
     return value;
   }
 
   TemperatureUnit getTemperatureUnit(const std::string_view &sourceOrTarget)
   {
     int choice;
-    printf("Select %s temperature unit:\n", std::string(sourceOrTarget).c_str());
-    printf("[1] Celsius\n");
-    printf("[2] Fahrenheit\n");
-    printf("[3] Kelvin\n");
-    printf("Enter choice: ");
-    scanf("%d", &choice);
+    std::cout << "Select " << sourceOrTarget << " temperature unit:" << std::endl;
+    std::cout << "[1] Celsius" << std::endl;
+    std::cout << "[2] Fahrenheit" << std::endl;
+    std::cout << "[3] Kelvin" << std::endl;
+    std::cout << "Enter choice: ";
+    std::cin >> choice;
 
     switch (choice)
     {

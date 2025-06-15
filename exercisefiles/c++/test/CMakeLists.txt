@@ -3,6 +3,7 @@ set(target run-tests)
 add_executable(
   ${target} 
   temperature_test.cpp
+  distance_test.cpp
 )
 
 include(FetchContent)
