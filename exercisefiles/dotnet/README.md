@@ -155,6 +155,7 @@ Documenting code is always a boring and painful task. However, we can use Copilo
 We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
 
 You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
+As an example you can switch to agent mode to determine the context and and enter a prompt like: `Ensure that a suitable unit tests project is prepared for the selected code file. Create a test file in the unit test project that includes unit tests for all methods in the selected file.`
 
 ### Exercise 5: Create a Dockerfile
 
